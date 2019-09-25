@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 24 Sep 2019 pada 10.17
+-- Waktu pembuatan: 25 Sep 2019 pada 08.40
 -- Versi server: 10.3.16-MariaDB
 -- Versi PHP: 7.2.19
 
@@ -86,6 +86,21 @@ CREATE TABLE `tokens` (
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `tokens`
+--
+
+INSERT INTO `tokens` (`id`, `user_id`, `token`, `type`, `is_revoked`, `created_at`, `updated_at`) VALUES
+(1, 1, '5070bac5-9d84-48ce-a60a-14e401b180c3', 'jwt_refresh_token', 0, '2019-09-25 13:13:44', '2019-09-25 13:13:44'),
+(2, 1, '8810b690-4b3f-41f5-9428-f88a51e5d273', 'jwt_refresh_token', 0, '2019-09-25 13:14:02', '2019-09-25 13:14:02'),
+(3, 1, '4d67ea6c-7050-4ed4-8ab6-33549320b743', 'jwt_refresh_token', 0, '2019-09-25 13:14:03', '2019-09-25 13:14:03'),
+(4, 1, '25550d35-6a22-47ca-bbaf-75c03cb9bda6', 'jwt_refresh_token', 0, '2019-09-25 13:16:20', '2019-09-25 13:16:20'),
+(5, 1, '6cf00946-cb72-4903-8c8b-7b6a1b5efe10', 'jwt_refresh_token', 0, '2019-09-25 13:16:29', '2019-09-25 13:16:29'),
+(6, 1, '0108b0da-97fc-493d-8c5a-0375b4a43314', 'jwt_refresh_token', 0, '2019-09-25 13:16:59', '2019-09-25 13:16:59'),
+(7, 1, '5f485c17-c929-48b2-8953-4b86dd301aa0', 'jwt_refresh_token', 0, '2019-09-25 13:17:17', '2019-09-25 13:17:17'),
+(8, 1, '4bc1b0ea-e191-437a-8a36-f2470c323c20', 'jwt_refresh_token', 0, '2019-09-25 13:17:37', '2019-09-25 13:17:37'),
+(9, 1, 'c2ae12c3-efb2-44dd-8e31-7819f97d14c0', 'jwt_refresh_token', 0, '2019-09-25 13:17:55', '2019-09-25 13:17:55');
+
 -- --------------------------------------------------------
 
 --
@@ -100,6 +115,13 @@ CREATE TABLE `users` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `email`, `password`, `created_at`, `updated_at`) VALUES
+(1, 'novalita', 'novalita.k.wardhana@gmail.com', '$2a$10$jot7EnOw3qrlAM1fYIGje.1u9Al.b9eclaNCAzg8hWdbiFk6ppzh.', '2019-09-25 11:23:43', '2019-09-25 11:23:43');
 
 --
 -- Indexes for dumped tables
@@ -149,19 +171,19 @@ ALTER TABLE `adonis_schema`
 -- AUTO_INCREMENT untuk tabel `mahasiswas`
 --
 ALTER TABLE `mahasiswas`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `tokens`
 --
 ALTER TABLE `tokens`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

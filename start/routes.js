@@ -20,8 +20,11 @@ Route.get('/', () => {
   return { greeting: 'Hello world in JSON' }
 })
 
-Route.get('/mahasiswa', 'MahasiswaController.index').prefix('api/v1')
-Route.get('/mahasiswa/:id', 'MahasiswaController.show').prefix('api/v1')
-Route.post('/mahasiswa/add', 'MahasiswaController.add').prefix('api/v1')
-Route.put('/mahasiswa/update/:id', 'MahasiswaController.update').prefix('api/v1')
-Route.delete('/mahasiswa/:id', 'MahasiswaController.delete').prefix('api/v1')
+Route.get('/mahasiswa', 'MahasiswaController.index').prefix('api/v1').middleware('auth')
+Route.get('/mahasiswa/:id', 'MahasiswaController.show').prefix('api/v1').middleware('auth')
+Route.post('/mahasiswa/add', 'MahasiswaController.add').prefix('api/v1').middleware('auth')
+Route.put('/mahasiswa/update/:id', 'MahasiswaController.update').prefix('api/v1').middleware('auth')
+Route.delete('/mahasiswa/:id', 'MahasiswaController.delete').prefix('api/v1').middleware('auth')
+
+Route.post('/auth/register', 'AuthController.register').prefix('api/v1')
+Route.post('/auth/login', 'AuthController.login').prefix('api/v1')
