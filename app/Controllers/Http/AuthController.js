@@ -46,6 +46,19 @@ class AuthController {
 
   }
 
+  async refreshToken({auth, request, response}) {
+    let refresh_token = request.input('refresh_token')
+
+    try {
+      let new_refresh_token = await auth.generateForRefreshToken(refresh_token, true)
+      if (new_refresh_token) {
+        return response.status(200).json(new_refresh_token)
+      }
+    } catch (e) {
+      return response.status(400).json({"message": "Refresh token not success"})
+    }
+  }
+
 }
 
 module.exports = AuthController
