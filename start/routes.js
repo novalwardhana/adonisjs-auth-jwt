@@ -28,3 +28,4 @@ Route.delete('/mahasiswa/:id', 'MahasiswaController.delete').prefix('api/v1').mi
 
 Route.post('/auth/register', 'AuthController.register').prefix('api/v1')
 Route.post('/auth/login', 'AuthController.login').prefix('api/v1')
+Route.post('/auth/logout', 'AuthController.logout').prefix('api/v1').middleware('auth')

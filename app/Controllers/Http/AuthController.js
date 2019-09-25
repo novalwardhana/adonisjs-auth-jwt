@@ -34,6 +34,18 @@ class AuthController {
     }
   }
 
+  async logout({auth, response}) {
+    try {
+      const apiToken = auth.getAuthHeader()
+      await auth.authenticator("jwt").revokeTokens([apiToken])
+
+      return response.status(200).json({"message": "Logout success"})
+    } catch (e) {
+      return response.status(400).json({"message": "Logout not success"})
+    }
+
+  }
+
 }
 
 module.exports = AuthController
